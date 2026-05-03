@@ -24,6 +24,7 @@ Here is a list of use cases we would like to support
   - Use every other voxel of the cubic grid. Ie you checker the cubic grid, then you cut each white cell into 6 pyramids and glue them on to the 6 neighboring black cells
     - This would require either leaving half the elements unused in the buffers, or having the dimensions of the buffers not be all the same length
   - have four rad voxel per cell of the cubic grid
+
 If we do not want to compromise on bodies having orthonormal lattices and buffers being nxnxn, then we would have to use the third option.
 
 - Instead of building on the cells of the grid, building on the faces.
