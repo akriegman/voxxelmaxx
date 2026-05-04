@@ -35,7 +35,7 @@ Here's a game tick in pseudocode:
   - solids move as rigid bodies, with angular momentum and all that
   - fluids:
     - move candidates = all neighbors in an orthant containing the force vector. ie in general the force will be in one orthant so the candidates will be one corner neighbor, three edge neighbors, and three face neighbors, but if the force is 0 then it lies in every orthant so the candidates are all the neighbors. but this is probably overcomplicated, and we should choose one orthant breaking ties arbitrarily.
-    - if intersecting a solid voxel, cannot move into another voxel intersecting the same solid voxel.
+    - if intersecting a solid voxel, cannot move into another voxel intersecting the same solid voxel. similarly we can make interior fluid voxel solid for collisions.
     - if B is a candidate of A and A is a candidate of B, we can swap them
     - if a candidate has the same fluid type, we can transfer some level. how much should depend on the forces. maybe we can project the forces onto the displacement direction, then move a portion p of A to B, and a portion q of B to A, taking respective portions of the force with them, chosen to... minimize the remaining (squared) force? set the remaining force equal to 0? the equations become degenerate when the forces are equal... if we're minimizing then we can optionally skip the projection step I mentioned...
       - I guess that since we're neglecting momentum, minimizing force minimizes how incorrect our model is. This is what happens with Stokes flow, you neglect the momentum terms and you're just left with F = 0.
