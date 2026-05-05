@@ -1,9 +1,9 @@
 #!/bin/bash
 
 function run {
-  cargo run
+  cargo run --example main
 }
 
 function dbg {
-  cargo run --features bevy/debug
+  cargo run --example main --features bevy/debug
 }
