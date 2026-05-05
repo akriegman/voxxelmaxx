@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function run {
+  cargo run
+}
+
+function dbg {
+  cargo run --features bevy/debug
+}
